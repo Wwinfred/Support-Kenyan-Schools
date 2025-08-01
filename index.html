@@ -32,13 +32,36 @@ nav {
     nav a { margin: 0 15px; text-decoration: none; color: #333; position: sticky;
           }
     section { padding: 20px; }
-    #footer { background-color: #FF6F61; 
-            color: white; 
-            text-align: center; 
-            padding: 10px; 
-            position: relative; 
-            width: 100%;
-            bottom: 0;}
+   .footer {
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 1rem;
+  position: relative; /* ensure it flows with document */
+}
+
+.footer a {
+  color: #f9c74f;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 15px 10px;
+    font-size: 0.9rem;
+  }
+
+  .footer a {
+    display: block;
+    margin-top: 10px;
+  }
     .school-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
     #about {
   background-color: #fce4ec;
@@ -126,9 +149,12 @@ nav {
     <p>Phone: +254 720 379 222</p>
   </section>
 
-<footer id="footer">
+<footer class="footer">
+  <div class="footer-content">
     <p>&copy; 2025 Support Kenyan Schools</p>
-  </footer>
+    <a href="mailto:info@supportkenyanschools.org">Contact Us</a>
+  </div>
+</footer>
 
 </body>
 </html>
