@@ -84,11 +84,13 @@ nav {
 
 /* Individual school cards */
 .school-card {
+  flex: 1 1 300px;  /* flexible width basis */
+  max-width: 320px; /* prevent overly wide */
+  min-width: 260px; /* prevent too narrow */
   background-color: #fff;
   border: 2px dashed #ffd166;
   border-radius: 12px;
   padding: 1.5rem;
-  max-width: 300px;
   width: 100%;
   text-align: left;
   position: relative;
@@ -317,6 +319,7 @@ nav {
 
 </body>
 </html>
+
 
 
 
