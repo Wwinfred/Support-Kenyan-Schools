@@ -47,6 +47,84 @@ nav {
     nav a { margin: 0 15px; text-decoration: none; color: #333; position: sticky;
           }
     section { padding: 20px; }
+  /* === Find a School Section === */
+.find-a-school {
+  padding: 4rem 1rem;
+  background-color: #fff9f0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.find-a-school h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.find-a-school .subtext {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 2.5rem;
+}
+
+/* Optional container for consistent site layout */
+.find-a-school .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Grid layout */
+.school-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* Individual school cards */
+.school-card {
+  background-color: #fff;
+  border: 2px dashed #ffd166;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 300px;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.school-card:hover {
+  transform: translateY(-5px);
+}
+
+.school-card h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.school-card p {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+/* Coming Soon Badge */
+.school-card .badge {
+  background-color: #ffd166;
+  color: #000;
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
    .footer {
   width: 100%;
   background-color: #2d89ef;
@@ -147,13 +225,35 @@ nav {
   </p>
   </section>
   <section id="schools">
-    <h2>Find a School</h2>
-    <div class="school-card">
-      <h3>Oltoruto Secondary School - Kajiado</h3>
-      <p>Needs: Computers, Water, Dormitories, Food</p>
+    <section class="find-a-school">
+  <div class="container">
+    <h2>🌍 Find a School We Hope to Support</h2>
+    <p class="subtext">We’re just getting started—but here are the communities we dream of reaching first.</p>
+
+    <div class="school-grid">
+      <div class="school-card coming-soon">
+        <h3>Bright Future Primary</h3>
+        <p><strong>Region:</strong> Kisumu County</p>
+        <p>Needs desks, textbooks & safe classrooms.</p>
+        <span class="badge">Coming Soon</span>
+      </div>
+
+      <div class="school-card coming-soon">
+        <h3>Hope Valley School</h3>
+        <p><strong>Region:</strong> Turkana</p>
+        <p>Our dream is to provide solar power and clean water access.</p>
+        <span class="badge">Coming Soon</span>
+      </div>
+
+      <div class="school-card coming-soon">
+        <h3>Unity School</h3>
+        <p><strong>Region:</strong> Nairobi</p>
+        <p>Needs repairs, books, and tech tools for digital learning.</p>
+        <span class="badge">Coming Soon</span>
+      </div>
     </div>
-    <!-- More schools will go here -->
-  </section>
+  </div>
+</section>
 
   <section id="list">
    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
@@ -217,6 +317,7 @@ nav {
 
 </body>
 </html>
+
 
 
 
