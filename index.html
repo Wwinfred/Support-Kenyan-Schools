@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Support Kenyan Schools</title>
   <style>
-    body { font-family: "Fredoka", sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; 
+    body { font-family: "Fredoka", sans-serif; padding-bottom: 60px; display: flex; flex-direction: column; 
           background: #fefefe;
           color: #333;
          }
@@ -127,18 +127,17 @@ nav {
   top: 1rem;
   right: 1rem;
 }
-   .footer {
-  width: 100%;
-  background-color: #2d89ef;
-  color: white;
-  padding: 5px;
-  text-align: center;
-  font-size: 1rem;
-  position: sticky;
+   footer {
+  position: fixed;
   bottom: 0;
   left: 0;
+  width: 100%;
+  background-color: #333; /* or any color */
+  color: white;
+  text-align: center;
+  padding: 10px;
+  z-index: 1000;
 }
-
 .footer a {
   color: #f9c74f;
   text-decoration: none;
@@ -302,15 +301,13 @@ nav {
     <p>Phone: +254 720 379 222</p>
   </section>
 
-<footer class="footer">
-  <div class="footer-content">
-    <p>&copy; 2025 Support Kenyan Schools</p>
-    <a href="mailto:info@supportkenyanschools.org">Contact Us</a>
-  </div>
+<footer>
+  <p>&copy; 2025 Support Kenyan Schools.</p>
 </footer>
 
 </body>
 </html>
+
 
 
 
