@@ -239,13 +239,18 @@ nav {
    flex-direction: column; 
    align-items: center; 
    justify-content: center; 
-   height: 50vh;
+   min-height: 50vh;
+   width: 100%;
    background-image: url('B.png');
    background-size: cover; 
+   background-repeat: no-repeat;
+   background-attachment: fixed;
    background-position: center; 
    padding: 20px; 
    color: white;
    border-radius: 8px;
+   padding: 40px 20px;
+   box-sizing: border-box;
    max-width: 800px;
 ">
   <h2 style="margin-bottom: 10px; font-size: 22px;">List Your School</h2>
@@ -277,7 +282,6 @@ nav {
         <label><input type="radio" name="type" value="Private"> Private</label>
       </div>
     </div>
-
     <div style="display: flex; align-items: flex-start; margin-bottom: 6px;">
       <label for="needs" style="width: 60px; font-size: 14px;">Needs:</label>
       <textarea id="needs" name="needs_description" rows="3" style="width: 200px; padding: 4px; font-size: 14px;" placeholder="Describe your needs..."></textarea>
@@ -302,6 +306,7 @@ nav {
 
 </body>
 </html>
+
 
 
 
