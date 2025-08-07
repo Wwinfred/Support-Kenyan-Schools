@@ -28,7 +28,7 @@
       background-color: #2d89ef;
       transform: scale(1.03);}
     main{flex: 1;}
-    header {
+header {
   position: fixed;
   top: 0;
   left: 0;
@@ -41,7 +41,6 @@
 justify-content: center;
   z-index: 1000;
 }
-
 /* Style the logo image */
 .logo {
   height: 130px; /* adjust as needed */
@@ -51,7 +50,6 @@ body {
   margin: 0;
   font-family: 'Baloo 2', cursive;
 }
-
 .nav-bar {
   background-color: #FAFAFA;
   display: flex;
@@ -60,15 +58,10 @@ body {
   align-items: center;
   padding: 10px 20px;
   position: sticky;
-  top: 0;
+  top: 130px;
   z-index: 1000;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-
-.logo {
-  max-height: 60px;
-}
-
 /* Hamburger Icon */
 .hamburger {
   display: none;
@@ -220,8 +213,6 @@ body {
   <header>
   <img src="Logg.jpg" alt="Logo" class="logo">
   </header>
-  <nav class="nav-bar">
-  <img src="Logg.jpg" alt="Logo" class="logo" />
   <div class="hamburger" id="hamburger">
     <div></div><div></div><div></div>
   </div>
@@ -231,7 +222,6 @@ body {
     <a href="#schools">Find a School</a>
     <a href="#list">List a School</a>
   </div>
-</nav>
 
 <script>
   document.getElementById("hamburger").addEventListener("click", function () {
@@ -368,6 +358,7 @@ body {
 </script>
 </body>
 </html>
+
 
 
 
