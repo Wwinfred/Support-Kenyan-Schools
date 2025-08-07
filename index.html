@@ -47,33 +47,34 @@ justify-content: center;
   height: 130px; /* adjust as needed */
   width: auto;
 }
-#navLinks {
+body {
+  margin: 0;
+  font-family: 'Baloo 2', cursive;
+}
+
+.nav-bar {
   background-color: #FAFAFA;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;  
-  padding: 10px 20px; 
-  text-align: center; 
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
   position: sticky;
-  top: 140;  /* Optional: If you want it to stick under your header */
+  top: 0;
   z-index: 1000;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #333;
+.logo {
+  max-height: 60px;
 }
 
+/* Hamburger Icon */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  margin-left: auto;
 }
-
 .hamburger div {
   width: 25px;
   height: 3px;
@@ -81,20 +82,36 @@ nav a {
   margin: 4px 0;
 }
 
-/* Responsive Styles */
+/* Nav Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  nav {
+  .nav-bar {
     flex-direction: column;
     align-items: flex-start;
-    display: none; /* Hide initially */
-    width: 100%;
-  }
-
-  nav.active {
-    display: flex;
   }
 
   .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-links.active {
     display: flex;
   }
 }
@@ -200,22 +217,28 @@ nav a {
   </style>
 </head>
 <body>
-
   <header>
   <img src="Logg.jpg" alt="Logo" class="logo">
   </header>
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
+  <nav class="nav-bar">
+  <img src="Logg.jpg" alt="Logo" class="logo" />
+  <div class="hamburger" id="hamburger">
+    <div></div><div></div><div></div>
   </div>
-  <nav id="navLinks">
+  <div class="nav-links" id="navLinks">
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#schools">Find a School</a>
     <a href="#list">List a School</a>
-  </nav>
-  <section id="home">
+  </div>
+</nav>
+
+<script>
+  document.getElementById("hamburger").addEventListener("click", function () {
+    document.getElementById("navLinks").classList.toggle("active");
+  });
+</script> 
+<section id="home">
     <img src="P2.jpg" alt="Children learning" style="width:100%; height: auto;">
     <img src="P1.jpg" alt="Children learning" style="width:100%; height: auto;">
     <!--<div style="text-align: center; margin-top: 20px;">-->
@@ -345,6 +368,7 @@ nav a {
 </script>
 </body>
 </html>
+
 
 
 
