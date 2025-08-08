@@ -27,46 +27,58 @@
     button:hover{
       background-color: #2d89ef;
       transform: scale(1.03);}
-    main{flex: 1;}
-header {
+   body {
+  margin: 0;
+  font-family: 'Baloo 2', sans-serif;
+}
+
+/* HEADER */
+.site-header {
+  background-color: #fdd835;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  background-color: #ffd93d; /* Change to match your theme */
-  padding: 10px 20px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* subtle shadow */
-  display: flex;
-  align-items: center;
-justify-content: center;
-  z-index: 1000;
+  z-index: 1001;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-/* Style the logo image */
 .logo {
-  height: 130px; /* adjust as needed */
-  width: auto;
+  max-height: 50px;
 }
-body {
-  margin: 0;
-  font-family: 'Baloo 2', cursive;
-}
-.nav-bar {
-  background-color: #FAFAFA;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  position: sticky;
-  top: 130px;
+
+/* NAVIGATION */
+.main-nav {
+  background-color: #fafafa;
+  position: fixed;
+  top: 70px;
+  width: 100%;
   z-index: 1000;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
-/* Hamburger Icon */
+
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* HAMBURGER MENU */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
+  margin-left: auto;
+  margin-right: 20px;
 }
 .hamburger div {
   width: 25px;
@@ -75,38 +87,33 @@ body {
   margin: 4px 0;
 }
 
-/* Nav Links */
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
-.nav-links a {
-  text-decoration: none;
-  color: #333;
-  padding: 10px;
-}
-
-/* Responsive */
+/* RESPONSIVE BEHAVIOR */
 @media (max-width: 768px) {
-  .nav-bar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
   .nav-links {
     display: none;
     flex-direction: column;
-    width: 100%;
-    text-align: left;
+    background-color: #fafafa;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 10px 0;
   }
-
   .nav-links.active {
     display: flex;
   }
+  .hamburger {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+/* CONTENT PADDING BELOW FIXED HEADER + NAV */
+main {
+  padding-top: 140px;
 }
     section { padding: 20px; }
   /* === Find a School Section === */
@@ -210,24 +217,29 @@ body {
   </style>
 </head>
 <body>
-  <!--<header>
-  <img src="Logg.jpg" alt="Logo" class="logo">
-  </header>-->
-  <div class="hamburger" id="hamburger">
-    <div></div><div></div><div></div>
+  <!-- HEADER -->
+<header class="site-header">
+  <img src="fredo.jpg" alt="Logo" class="logo">
+</header>
+
+<!-- NAVIGATION -->
+<nav class="main-nav">
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
   </div>
   <div class="nav-links" id="navLinks">
     <a href="#home">Home</a>
     <a href="#about">About</a>
-    <a href="#find-a-school">Find a School</a>
+    <a href="#schools">Find a School</a>
     <a href="#list">List a School</a>
   </div>
+</nav>
 
-<script>
-  document.getElementById("hamburger").addEventListener("click", function () {
-    document.getElementById("navLinks").classList.toggle("active");
-  });
-</script> 
+<!-- MAIN CONTENT -->
+<main>
+  <section>
 <section id="home">
     <img src="Child 1.jpg" alt="Children learning" style="width:100%; height: auto;">
     <img src="P1.jpg" alt="Children learning" style="width:100%; height: auto;">
@@ -350,37 +362,14 @@ body {
 <!--<footer>
   <p>&copy; 2025 Support Kenyan Schools.</p>
 </footer>-->
+  </section>
+</main>
+
+<!-- SCRIPT -->
 <script>
   function toggleMenu() {
-    const nav = document.getElementById("navLinks");
-    nav.classList.toggle("active");
+    document.getElementById('navLinks').classList.toggle('active');
   }
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
