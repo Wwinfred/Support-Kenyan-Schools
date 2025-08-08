@@ -7,7 +7,7 @@
   <meta name="description" content="Support Kenyan Schools connects under-resourced schools in Kenya with donors and education stakeholders to provide basic needs, computers, and infrastructure.">
   <meta name="keywords" content="Kenya schools, education support Kenya, donate to Kenyan schools, school needs in Kenya, school infrastructure, digital literacy, rural schools Kenya">
   <meta name="author" content="Winfred Waithera">
-  <title>Support Kenyan Schools</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     html, body { 
           font-family: "Fredoka", sans-serif; 
@@ -195,25 +195,6 @@ main {
   top: 1rem;
   right: 1rem;
 }
-   .site-footer {
-  border-top: 2px solid #fafafa;
-  color: #555;
-  text-align: center;
-  padding: 6px 0;
-  font-size: 0.85rem;
-  position: relative;
-  margin-top: auto;
-  width: 100%;
-  box-sizing: border-box;
-}
-.site-footer::before {
-  content: "🌍 📚 ❤️";
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.8rem;
-}
     .school-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
     #about {
   background-color: #fce4ec;
@@ -222,6 +203,37 @@ main {
   color: #333;
   font-family: 'Baloo 2', cursive;
   text-align: center;
+}
+    .site-footer {
+  background: none;
+  border-top: 2px solid #ff9900; /* Accent line */
+  color: #555;
+  text-align: center;
+  padding: 15px 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.site-footer h3 {
+  margin: 5px 0;
+}
+
+.site-footer a {
+  color: #555;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: #ff9900; /* Hover matches accent */
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  margin: 0 8px;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
 }
   </style>
 </head>
@@ -361,17 +373,27 @@ main {
     </div>
   </form>
 </div>
-  </section>
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: info@supportkenyanschools.org / waitherawinfred@gmail.com</p>
-    <p>Phone: +254 720 379 222</p>
-  </section>
-  <section>
-  <footer class="site-footer">
-  <p>&copy; 2025 Support Kenyan Schools. All rights reserved.</p>
+   </section>
+<footer class="site-footer">
+  <div class="contact-container">
+    <h3>Contact Us</h3>
+    <p>Email: <a href="mailto:info@supportkenyanschools.org">info@supportkenyanschools.org</a></p>
+    <div class="social-icons">
+      <a href="https://facebook.com/YourPage" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://twitter.com/YourHandle" target="_blank" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://instagram.com/YourProfile" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://linkedin.com/in/YourProfile" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </div>
 </footer>
-</section>
 </main>
 
 <script>
@@ -394,6 +416,7 @@ main {
 </script>
 </body>
 </html>
+
 
 
 
