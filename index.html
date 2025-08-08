@@ -365,14 +365,27 @@ main {
   </section>
 </main>
 
-<!-- SCRIPT -->
 <script>
   function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('active');
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
   }
+
+  // Close menu when a nav link is clicked (for mobile)
+  document.addEventListener('DOMContentLoaded', () => {
+    const links = document.querySelectorAll('.nav-links a');
+    const navLinks = document.getElementById('navLinks');
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+  });
 </script>
 </body>
 </html>
+
 
 
 
