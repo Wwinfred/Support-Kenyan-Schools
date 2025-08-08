@@ -198,15 +198,21 @@ main {
   top: 1rem;
   right: 1rem;
 }
-   footer {
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #2d89ef; /* or any color */
+   .site-footer {
+  background-color: rgba(0,0,0,0.6);
   color: white;
   text-align: center;
-  padding: 10px;
-  z-index: 1000;
+  padding: 6px 0;
+  font-size: 0.85rem;
+  position: relative;
+}
+.site-footer::before {
+  content: "🌍 📚 ❤️";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
 }
     .school-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
     #about {
@@ -361,11 +367,10 @@ main {
     <p>Email: info@supportkenyanschools.org / waitherawinfred@gmail.com</p>
     <p>Phone: +254 720 379 222</p>
   </section>
-
-<!--<footer>
-  <p>&copy; 2025 Support Kenyan Schools.</p>
-</footer>-->
   </section>
+  <footer class="site-footer">
+  <p>&copy; 2025 Support Kenyan Schools. All rights reserved.</p>
+</footer>
 </main>
 
 <script>
@@ -388,6 +393,7 @@ main {
 </script>
 </body>
 </html>
+
 
 
 
