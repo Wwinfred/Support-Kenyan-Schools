@@ -357,39 +357,49 @@ main {
    max-width: 100%;
 ">
   <h2 style="margin-bottom: 10px; font-size: 22px;">List Your School</h2>
-  <form method="POST" action="https://api.web3forms.com/submit" style="padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
-    <div style="display: flex; align-items: center; margin-bottom: 6px;">
-      <label for="name" style="width: 60px; font-size: 14px;">Name:</label>
-      <input type="text" id="name" name="name" required style="width: 200px; padding: 4px; font-size: 14px;">
-    </div>
-    <div style="display: flex; align-items: center; margin-bottom: 6px;">
-      <label for="school" style="width: 60px; font-size: 14px;">School:</label>
-      <input type="text" id="school" name="school_name" required style="width: 200px; padding: 4px; font-size: 14px;">
-    </div>
-    <div style="display: flex; align-items: center; margin-bottom: 6px;">
-      <label for="location" style="width: 60px; font-size: 14px;">Location:</label>
-      <input type="text" id="location" name="location" required style="width: 200px; padding: 4px; font-size: 14px;">
-    </div>
-    <div style="display: flex; align-items: center; margin-bottom: 6px;">
-      <label for="email" style="width: 60px; font-size: 14px;">Email:</label>
-      <input type="email" id="email" name="email" required style="width: 200px; padding: 4px; font-size: 14px;">
-    </div>
-    <div style="display: flex; align-items: center; margin-bottom: 6px;">
-      <label style="width: 60px; font-size: 14px;">Type:</label>
-      <div style="display: flex; gap: 10px; font-size: 14px;">
-        <label><input type="radio" name="type" value="Government" required> Government</label>
-        <label><input type="radio" name="type" value="Private"> Private</label>
-      </div>
-    </div>
-    <div style="display: flex; align-items: flex-start; margin-bottom: 6px;">
-      <label for="needs" style="width: 60px; font-size: 14px;">Needs:</label>
-      <textarea id="needs" name="needs_description" rows="3" style="width: 200px; padding: 4px; font-size: 14px;" placeholder="Describe your needs..."></textarea>
-    </div>
+<form method="POST" action="https://api.web3forms.com/submit" style="padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+  
+  <!-- Required Web3Forms access key -->
+  <input type="hidden" name="access_key" value="03e1d188-050a-411e-9b22-efa73292ed30">
 
-    <div style="text-align: left; margin-left: 60px;">
-      <button type="submit" style="padding: 5px 12px; font-size: 14px;">Submit</button>
+  <div style="display: flex; align-items: center; margin-bottom: 6px;">
+    <label for="name" style="width: 60px; font-size: 14px;">Name:</label>
+    <input type="text" id="name" name="name" required style="width: 200px; padding: 4px; font-size: 14px;">
+  </div>
+
+  <div style="display: flex; align-items: center; margin-bottom: 6px;">
+    <label for="school" style="width: 60px; font-size: 14px;">School:</label>
+    <input type="text" id="school" name="school_name" required style="width: 200px; padding: 4px; font-size: 14px;">
+  </div>
+
+  <div style="display: flex; align-items: center; margin-bottom: 6px;">
+    <label for="location" style="width: 60px; font-size: 14px;">Location:</label>
+    <input type="text" id="location" name="location" required style="width: 200px; padding: 4px; font-size: 14px;">
+  </div>
+
+  <div style="display: flex; align-items: center; margin-bottom: 6px;">
+    <label for="email" style="width: 60px; font-size: 14px;">Email:</label>
+    <input type="email" id="email" name="email" required style="width: 200px; padding: 4px; font-size: 14px;">
+  </div>
+
+  <div style="display: flex; align-items: center; margin-bottom: 6px;">
+    <label style="width: 60px; font-size: 14px;">Type:</label>
+    <div style="display: flex; gap: 10px; font-size: 14px;">
+      <label><input type="radio" name="type" value="Government" required> Government</label>
+      <label><input type="radio" name="type" value="Private"> Private</label>
     </div>
-  </form>
+  </div>
+
+  <div style="display: flex; align-items: flex-start; margin-bottom: 6px;">
+    <label for="needs" style="width: 60px; font-size: 14px;">Needs:</label>
+    <textarea id="needs" name="needs_description" rows="3" style="width: 200px; padding: 4px; font-size: 14px;" placeholder="Describe your needs..."></textarea>
+  </div>
+
+  <div style="text-align: left; margin-left: 60px;">
+    <button type="submit" style="padding: 5px 12px; font-size: 14px;">Submit</button>
+  </div>
+
+</form>
 </div>
    </section>
 <footer class="site-footer">
@@ -437,6 +447,7 @@ main {
 </script>
 </body>
 </html>
+
 
 
 
