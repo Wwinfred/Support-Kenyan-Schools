@@ -292,6 +292,19 @@ main {
   width: 50%;
   background: #ddd;
 }
+  .reveal {
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+.reveal-up { transform: translateY(40px); }
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+.reveal-zoom { transform: scale(0.95); }
+.reveal.active {
+  opacity: 1;
+  transform: none;
+}
+
   </style>
 </head>
 <body>
@@ -540,8 +553,27 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+<script>
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll(".reveal");
+    reveals.forEach(el => {
+      const windowHeight = window.innerHeight;
+      const elementTop = el.getBoundingClientRect().top;
+      const elementVisible = 100;
+
+      if (elementTop < windowHeight - elementVisible) {
+        el.classList.add("active");
+      } else {
+        el.classList.remove("active"); 
+      }
+    });
+  }
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll(); // Run on load
+</script>
 </body>
 </html>
+
 
 
 
