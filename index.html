@@ -295,31 +295,28 @@ main {
 }
     /* Footer */
 .foot {
-  background: #222;
-  color: #ddd;
+  background: #111;         /* deep black for contrast */
+  color: #aaa;              /* softer text color */
   text-align: center;
-  padding: 20px;
-  margin-top: 40px;
+  padding: 10px 0;          /* slim height */
+  font-size: 0.9rem;        /* slightly smaller text */
+  border-top: 1px solid #333; /* subtle divider */
 }
 
-.footer {
-  margin-bottom: 10px;
+.foot .footer {
+  margin-bottom: 5px;
 }
 
-.footer a {
-  color: #ddd;
-  margin: 0 10px;
+.foot .footer a {
+  color: #aaa;
   text-decoration: none;
+  margin: 0 8px;
+  font-size: 0.9rem;
   transition: color 0.3s ease;
 }
 
-.footer a:hover {
-  color: #2a7ae2; /* Accent hover */
-}
-
-.trust-note {
-  font-size: 0.9rem;
-  color: #aaa;
+.foot .footer a:hover {
+  color: #fff; /* brighter on hover */
 }
 </style>
 </head>
@@ -589,6 +586,7 @@ s0.parentNode.insertBefore(s1,s0);
 </footer>
 </body>
 </html>
+
 
 
 
