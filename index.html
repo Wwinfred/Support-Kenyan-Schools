@@ -176,8 +176,10 @@ main {
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       text-align: center;
-      width: 300px;
       position: relative;
+      flex: 1 1 300px;       /* grow/shrink, base width 300px */
+      max-width: 33%;        /* limit each to a third of the row */
+      box-sizing: border-box;
     }
 
     .card h3 {
@@ -748,6 +750,7 @@ s0.parentNode.insertBefore(s1,s0);
 </footer>
 </body>
 </html>
+
 
 
 
