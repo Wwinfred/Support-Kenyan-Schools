@@ -36,56 +36,40 @@
       transform: scale(1.03);}
 /* HEADER */
 .site-header {
-  background-color: #FFD700;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1001;
-  text-align: center;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-.logo {
-  max-height: 80px;
-}
-/* NAVIGATION */
-.main-nav {
-  background-color: #fafafa;
-  position: fixed;
-  top: 95px;
-  width: 100%;
-  z-index: 1000;
-  padding: 10px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: fixed;   /* or position: fixed; */
+  top: 0;             /* stick to the top */
+  width: 100%;        /* ensure full width */
+  background-color: #FFD700; /* or your header color */
+  z-index: 1000;      /* above other content */
+  border-bottom: 1px solid #ddd; /* optional for separation */
+  padding: 10px 20px;
 }
 
-/* NAV LINKS */
-.nav-links {
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo img {
+  height: 60px;
+}
+
+.main-nav .nav-links {
   display: flex;
   gap: 20px;
 }
-.nav-links a {
+
+.main-nav .nav-links a {
   text-decoration: none;
   color: #34495e;
-  font-weight: bold;
+  font-weight: 500;
 }
 
-/* HAMBURGER MENU */
 .hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  margin-left: auto;
-  margin-right: 20px;
-}
-.hamburger div {
-  width: 25px;
-  height: 3px;
-  background-color: #34495e;
-  margin: 4px 0;
+  display: none; /* show only on mobile */
 }
 
 /* RESPONSIVE BEHAVIOR */
@@ -349,28 +333,31 @@ main {
 </style>
 </head>
 <body>
-  <!-- HEADER -->
-<header class="site-header">
-  <img src="SKS.png" alt="Logo" class="logo">
+ <header class="site-header">
+  <div class="header-container">
+    <!-- Logo -->
+    <a href="#home" class="logo">
+      <img src="SKS.png" alt="Support Kenyan Schools Logo">
+    </a>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#support-a-school">Support a School</a>
+        <a href="#blog">Blog</a>
+        <a href="#list">List a School</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
 </header>
-
-<!-- NAVIGATION -->
-<nav class="main-nav">
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <div class="nav-links" id="navLinks">
-    <a href="#home">Home</a>
-    <a href="#about">About Us</a>
-    <a href="#support-a-school">Support a School</a>
-    <a href="#blog">Blog</a>
-    <a href="#list">List a School</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
 <!-- MAIN CONTENT -->
 <main>
   <section>
@@ -732,6 +719,7 @@ s0.parentNode.insertBefore(s1,s0);
 </footer>
 </body>
 </html>
+
 
 
 
