@@ -162,66 +162,97 @@ main {
 
 /* Grid layout */
 /* Container for the school cards */
-.school-grid {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 20px 0;
-}
+.container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+      flex-wrap: wrap;
+    }
 
-/* Individual card styling */
-.school-card {
-  background: #fff;
-  width: 250px;              /* makes cards smaller */
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: left;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-  .school-card .badge {
-  background-color: #FFD700;
-  color: #000;
-  font-weight: bold;
-  padding: 0.2rem 0.4rem;
-  border-radius: 5px;
-  font-size: 0.5rem;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-}
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+      position: relative;
+    }
 
+    .card h3 {
+      margin-bottom: 10px;
+      color: #34495e;
+    }
 
-/* Hover effect */
-.school-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
+    .btn {
+      display: inline-block;
+      margin: 8px 5px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-/* Overlay "Stay Tuned" */
-.school-card::after {
-  content: "Stay Tuned";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  font-size: 1.3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  border-radius: 12px;
-}
+    .donate-btn {
+      background: #FFD700;
+      color: white;
+    }
+    .donate-btn:hover { background: #c0392b; }
 
-/* Show overlay on hover */
-.school-card:hover::after {
-  opacity: 1;
-}
+    .share-btn {
+      background: #3498db;
+      color: white;
+    }
+    .share-btn:hover { background: #2980b9; }
+
+    .disabled-btn {
+      background: #bdc3c7;
+      color: #7f8c8d;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      width: 100%;
+      background: #ecf0f1;
+      border-radius: 8px;
+      margin: 15px 0;
+      height: 18px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: #27ae60;
+      text-align: center;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 18px;
+    }
+
+    /* Share Icons */
+    .share-icons {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 50%;
+      left: 105%;
+      transform: translateY(-50%);
+      gap: 10px;
+      z-index: 9999;
+    }
+
+    .share-icons a {
+      font-size: 25px;
+      color: #34495e;
+      text-decoration: none;
+    }
+
+    .share-icons a:hover { color: #e74c3c; }
     #about {
   background-color: transparent;
   padding: 40px 20px;
@@ -433,30 +464,86 @@ main {
     <!-- Divider -->
     <hr class="divider">
 
-    <!-- School Cards -->
-    <div class="school-grid reveal reveal-zoom">
-      <div class="school-card coming-soon">
-        <h3>Kisumu Primary</h3>
-        <p><strong>Region:</strong> Kisumu County</p>
-        <p>Needs desks, pads, textbooks & safe classrooms.</p>
-        <span class="badge">Coming Soon</span>
+   <div class="container">
+    <!-- School 1 -->
+    <div class="card">
+      <h3>Longisa Primary: Bomet</h3>
+      <p>
+        Longisa Primary School currently has over <strong>510 pupils</strong> learning without proper desks. 
+        Four children share a desk in this school, making it difficult to write, read, and concentrate.</strong> 
+    Your support can change this.
+      </p>
+      <div class="needs">
+        <p><strong>Need:</strong> 50 desks (Ksh 2,000 each)</p>
+        <p><strong>Goal:</strong> Ksh 100,000</p>
       </div>
 
-      <div class="school-card coming-soon">
-        <h3>Hope Valley School</h3>
-        <p><strong>Region:</strong> Turkana</p>
-        <p>Our dream is to provide solar power, food and clean water access.</p>
-        <span class="badge">Coming Soon</span>
+      <!-- Progress bar -->
+      <div class="progress-container">
+        <div class="progress-bar" style="width: 20%;">20%</div>
+      </div>
+      <p><em>Ksh 20,000 raised of 100,000 goal</em></p>
+
+      <a href="tel:+254720379222" class="btn donate-btn">Donate</a>
+      <button class="btn share-btn" onclick="toggleShare(this)">Share</button>
+
+      <div class="share-icons">
+        <a href="https://wa.me/?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:?subject=Support Kenyan Schools&body=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/intent/tweet?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://wwinfred.github.io/Support-Kenyan-Schools/&title=Support%20Kenyan%20Schools" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="javascript:void(0);" onclick="copyLink()"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+
+    <!-- School 2 -->
+    <div class="card">
+      <h3>Nawoyaregae Primary: Turkana</h3>
+      <p>Total pupils: <strong>386 with 187 girls</strong>. Many girls miss school during their periods due to lack of proper sanitary pads. Some use torn cloth or even goat skins in place of pads.</p>
+
+      <!-- Progress bar -->
+      <div class="progress-container">
+        <div class="progress-bar" style="width: 0%;">0%</div>
       </div>
 
-      <div class="school-card coming-soon">
-        <h3>Kisaju Primary</h3>
-        <p><strong>Region:</strong> Kajiado</p>
-        <p>Needs; food, books, uniform, chalks, clean water access & mentorship.</p>
-        <span class="badge">Coming Soon</span>
+      <a href="#" class="btn donate-btn disabled-btn">Donate Coming Soon</a>
+      <button class="btn share-btn" onclick="toggleShare(this)">Share</button>
+
+      <div class="share-icons">
+        <a href="https://wa.me/?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:?subject=Support Kenyan Schools&body=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/intent/tweet?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://wwinfred.github.io/Support-Kenyan-Schools/&title=Support%20Kenyan%20Schools" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="javascript:void(0);" onclick="copyLink()"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+
+    <!-- School 3 -->
+    <div class="card">
+      <h3>Mararani Primary: Lamu</h3>
+      <p>The school was reopened in 2021 after insecurity in the area.<strong>Total pupils: 500</strong> Replacing roofs and conducting painting and repairs for classrooms and offices</p>
+
+      <!-- Progress bar -->
+      <div class="progress-container">
+        <div class="progress-bar" style="width: 0%;">0%</div>
+      </div>
+
+      <a href="#" class="btn donate-btn disabled-btn">Donate Coming Soon</a>
+      <button class="btn share-btn" onclick="toggleShare(this)">Share</button>
+
+      <div class="share-icons">
+        <a href="https://wa.me/?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:?subject=Support Kenyan Schools&body=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/intent/tweet?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://wwinfred.github.io/Support-Kenyan-Schools/&title=Support%20Kenyan%20Schools" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="javascript:void(0);" onclick="copyLink()"><i class="fab fa-tiktok"></i></a>
       </div>
     </div>
   </div>
+
 <!-- BLOG SECTION -->
 <section id="blog" style="padding: 3rem 1rem; background-color: #f5f5f5; text-align: center;">
   <h2 style="color: #34495e; margin-bottom: 1rem;">📚 Our Blog</h2>
@@ -615,6 +702,39 @@ s0.parentNode.insertBefore(s1,s0);
   window.addEventListener("scroll", revealOnScroll);
   revealOnScroll(); // Run on load
 </script>
+<script>
+  function toggleShare(button) {
+    // Close all open popups first
+    document.querySelectorAll('.share-icons').forEach(el => el.style.display = 'none');
+
+    // Open only the one for this card
+    let shareBox = button.nextElementSibling;
+    shareBox.style.display = "flex";
+
+    // Stop the click from bubbling up
+    event.stopPropagation();
+  }
+
+  // Close popups when clicking anywhere else on the page
+  document.addEventListener("click", function () {
+    document.querySelectorAll('.share-icons').forEach(el => el.style.display = 'none');
+  });
+
+  // Prevent closing when clicking inside the share icons themselves
+  document.querySelectorAll('.share-icons').forEach(el => {
+    el.addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
+  });
+
+  function copyLink() {
+    const link = "https://wwinfred.github.io/Support-Kenyan-Schools/";
+    navigator.clipboard.writeText(link).then(() => {
+      alert("Link copied! You can paste it into TikTok.");
+    });
+  }
+</script>
+
 <footer class="foot">
   <div class="footer">
     <a href="#about">About Us</a>
@@ -628,6 +748,7 @@ s0.parentNode.insertBefore(s1,s0);
 </footer>
 </body>
 </html>
+
 
 
 
