@@ -70,6 +70,12 @@
 
     @media (max-width: 768px){
       .hamburger{display:flex}
+      .hamburger:hover,
+.hamburger:active {
+  background: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
       .nav-links{
         position:absolute; top:100%; right:0; flex-direction:column;
         background:var(--brand); width:220px; padding:1rem; display:none;
@@ -490,3 +496,4 @@
   <!--End of Tawk.to Script-->
 </body>
 </html>
+
