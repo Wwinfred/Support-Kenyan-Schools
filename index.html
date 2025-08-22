@@ -35,72 +35,107 @@
       background-color: #2d89ef;
       transform: scale(1.03);}
 /* HEADER */
-.site-header {
-  position: fixed;   /* or position: fixed; */
-  top: 0;             /* stick to the top */
-  width: 100%;        /* ensure full width */
-  background-color: #FFD700; /* or your header color */
-  z-index: 1000;      /* above other content */
-  border-bottom: 1px solid #ddd; /* optional for separation */
-  padding: 10px 10px;
-}
+    .site-header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background-color: #FFD700;
+      transition: all 0.3s ease;
+      padding: 1rem 2rem;
+    }
 
 .header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
 .logo img {
-  height: 60px;
-}
+      height: 50px;
+      transition: height 0.3s ease;
+    }
 
-.main-nav .nav-links {
-  display: flex;
-  gap: 20px;
-}
+/* NAVIGATION */
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+.nav-links a {
+      text-decoration: none;
+      color: #34495e;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
 
-.main-nav .nav-links a {
-  text-decoration: none;
-  color: #34495e;
-  font-weight: 500;
-}
+.nav-links a:hover {
+      color: white;
+    }
 
-.hamburger {
-  display: none; /* show only on mobile */
-}
+/* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      z-index: 2001;
+    }  
+.hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: #34495e;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+/* SCROLLED HEADER */
+    .site-header.scrolled {
+      padding: 0.5rem 2rem;
+      background-color: #FFD700;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
 
-/* RESPONSIVE BEHAVIOR */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: #fafafa;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    padding: 10px 0;
-  }
-  .nav-links.active {
-    display: flex;
-  }
-  .hamburger {
-    display: flex;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
-}
+    .site-header.scrolled .logo img {
+      height: 40px;
+    }
+/* MOBILE MENU */
+    @media screen and (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
 
-/* CONTENT PADDING BELOW FIXED HEADER + NAV */
-main {
-  padding-top: 140px;
-}
-    section { padding: 20px; }
+.nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        flex-direction: column;
+        width: 220px;
+        text-align: right;
+        display: none;
+        padding: 1rem;
+        background-color: #FFD700;
+        border-radius: 0 0 10px 10px;
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+.nav-links a {
+        margin: 0.5rem 0;
+        display: block;
+      }
+
+      .nav-links.active {
+        display: flex;
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
   /* === Find a School Section === */
 .find-a-school {
   padding: 4rem 1rem;
@@ -333,31 +368,29 @@ main {
 </style>
 </head>
 <body>
- <header class="site-header">
-  <div class="header-container">
-    <!-- Logo -->
-    <a href="#home" class="logo">
-      <img src="SKS.png" alt="Support Kenyan Schools Logo">
-    </a>
-
-    <!-- Navigation -->
-    <nav class="main-nav">
-      <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#support-a-school">Support a School</a>
-        <a href="#blog">Blog</a>
-        <a href="#list">List a School</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </div>
-</header>
+ <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#home" class="logo">
+        <img src="SKS.png" alt="Support Kenyan Schools Logo">
+      </a>
+      <nav class="main-nav">
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#support">Support a School</a>
+          <a href="#blog">Blog</a>
+          <a href="#list">List a School</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 <!-- MAIN CONTENT -->
 <main>
   <section>
@@ -623,25 +656,30 @@ main {
 </section>
 
 </main>
-
 <script>
-  function toggleMenu() {
-    const navLinks = document.getElementById('navLinks');
-    navLinks.classList.toggle('active');
-  }
+    /* Toggle mobile menu */
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
 
-  // Close menu when a nav link is clicked (for mobile)
-  document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('.nav-links a');
-    const navLinks = document.getElementById('navLinks');
-
-    links.forEach(link => {
+    /* Close menu when link clicked */
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
+        document.getElementById('navLinks').classList.remove('active');
       });
     });
-  });
-</script>
+
+    /* Scroll effect */
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -719,3 +757,4 @@ s0.parentNode.insertBefore(s1,s0);
 </footer>
 </body>
 </html>
+
