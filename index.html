@@ -1,389 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-  <!-- NEW SEO META TAGS -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Support Kenyan Schools</title>
+
+  <!-- SEO -->
   <meta name="description" content="Support Kenyan Schools connects under-resourced schools in Kenya with donors and education stakeholders to provide basic needs, computers, and infrastructure.">
   <meta name="keywords" content="Kenya schools, education support Kenya, donate to Kenyan schools, school needs in Kenya, school infrastructure, digital literacy, rural schools Kenya">
   <meta name="author" content="Winfred Waithera">
+
+  <!-- Icons / Fonts -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
-    html, body { 
-          font-family: 'Baloo 2', cursive; 
-          padding-bottom: 60px; 
-          display: flex; 
-          flex-direction: column; 
-          color: #34495e;
-          scroll-behavior: smooth;
-          padding: 0;
-          margin: 0;
-          height: 100%;
-          scroll-padding-top: 80px; 
-         }
-    h1, h2 {
-      color: #34495e;
+    :root{
+      --brand:#FFD700;
+      --text:#34495e;
+      --muted:#666;
+      --card:#fff;
+      --bg:#f5f5f5;
+      --ok:#27ae60;
+      --blue:#3498db;
     }
-     button, input, textarea{
-      border-radius: 10px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{
+      height:100%;
+      font-family:'Baloo 2', cursive;
+      color:var(--text);
+      scroll-behavior:smooth;
+      scroll-padding-top:80px;
+      background:#fff;
     }
-    button:hover{
-      background-color: #2d89ef;
-      transform: scale(1.03);}
-/* HEADER */
-    .site-header {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      background-color: #FFD700;
-      transition: all 0.3s ease;
-      padding: 1rem 2rem;
+    h1,h2{color:var(--text)}
+    button,input,textarea{
+      border-radius:10px;border:1px solid #ccc;padding:10px;
+      box-shadow:0 2px 5px rgba(0,0,0,.05);
+      font-family:inherit;
     }
+    button:hover{background:#2d89ef;transform:scale(1.03);color:#fff}
 
-.header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
+    /* HEADER */
+    .site-header{
+      position:fixed; top:0; left:0; width:100%;
+      background:var(--brand); z-index:1000; padding:1rem 2rem;
+      transition:all .3s ease;
     }
+    .header-container{
+      max-width:1200px; margin:auto;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .logo img{height:50px}
 
-.logo img {
-      height: 50px;
-      transition: height 0.3s ease;
+    /* NAV */
+    .nav-links{display:flex; gap:1.5rem}
+    .nav-links a{
+      text-decoration:none; color:var(--text); font-weight:500; transition:color .3s;
     }
+    .nav-links a:hover{color:#fff}
 
-/* NAVIGATION */
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
+    /* HAMBURGER */
+    .hamburger{
+      display:none; flex-direction:column; gap:5px; cursor:pointer;
+      background:none; border:none; padding:0;
     }
-.nav-links a {
-      text-decoration: none;
-      color: #34495e;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
+    .hamburger span{width:25px; height:3px; background:var(--text); border-radius:2px; transition:all .3s}
 
-.nav-links a:hover {
-      color: white;
-    }
-
-/* HAMBURGER */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-      z-index: 2001;
-    }  
-.hamburger span {
-      width: 25px;
-      height: 3px;
-      background-color: #34495e;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-/* SCROLLED HEADER */
-    .site-header.scrolled {
-      padding: 0.5rem 2rem;
-      background-color: #FFD700;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .site-header.scrolled .logo img {
-      height: 40px;
-    }
-/* MOBILE MENU */
-    @media screen and (max-width: 768px) {
-      .hamburger {
-        display: flex;
+    @media (max-width: 768px){
+      .hamburger{display:flex}
+      .nav-links{
+        position:absolute; top:100%; right:0; flex-direction:column;
+        background:var(--brand); width:220px; padding:1rem; display:none;
+        text-align:right; border-radius:0 0 10px 10px;
+        box-shadow:0 4px 10px rgba(0,0,0,.1);
       }
-
-.nav-links {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        flex-direction: column;
-        width: 220px;
-        text-align: right;
-        display: none;
-        padding: 1rem;
-        background-color: #FFD700;
-        border-radius: 0 0 10px 10px;
-        transform: translateY(-20px);
-        opacity: 0;
-        transition: all 0.3s ease;
-      }
-.nav-links a {
-        margin: 0.5rem 0;
-        display: block;
-      }
-
-      .nav-links.active {
-        display: flex;
-        transform: translateY(0);
-        opacity: 1;
-      }
+      .nav-links.active{display:flex}
+      .nav-links a{margin:.5rem 0}
     }
 
-  /* === Find a School Section === */
-.find-a-school {
-  padding: 4rem 1rem;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-}
-
-.find-a-school h2 {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-  color: #34495e;
-}
-
-.find-a-school .subtext {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 2.5rem;
-}
-
-/* Optional container for consistent site layout */
-.find-a-school .container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* Grid layout */
-/* Container for the school cards */
-.container {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 40px;
-      flex-wrap: wrap;
+    /* UTIL */
+    .btn{
+      padding:8px 12px; border:none; cursor:pointer; border-radius:5px;
+      background:var(--text); color:#fff; display:inline-block; text-decoration:none;
     }
 
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;
-      position: relative;
-      flex: 1 1 300px;       /* grow/shrink, base width 300px */
-      max-width: 30%;        /* limit each to a third of the row */
-      box-sizing: border-box;
+    /* Sections */
+    main section{padding:2.5rem 1rem}
+    .section-wrap{max-width:1200px; margin:0 auto}
+    #home{padding-top:1rem}
+
+    /* HOW IT WORKS */
+    .how-it-works{background:var(--bg); padding:20px 10px; text-align:center; border-radius:12px}
+    .how-it-works h2{font-size:1.8rem; margin-bottom:15px}
+    .steps{display:flex; flex-wrap:wrap; gap:20px; justify-content:center}
+    .step{
+      background:#fff; border-radius:10px; padding:12px; max-width:220px;
+      box-shadow:0 4px 8px rgba(0,0,0,.05);
+    }
+    .icon{font-size:1.4rem; margin-bottom:6px}
+    .divider{margin:30px auto; border:none; height:2px; width:50%; background:#ddd}
+
+    /* SCHOOL CARDS */
+    .schools{
+      display:flex; justify-content:center; gap:20px; padding:20px 0; flex-wrap:wrap;
+    }
+    .card{
+      background:#fff; padding:20px; border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1); text-align:center; position:relative;
+      flex:1 1 300px; max-width:360px;
+    }
+    .card h3{margin-bottom:10px}
+    .donate-btn{background:var(--brand); color:#fff}
+    .donate-btn:hover{background:var(--text)}
+    .share-btn{background:var(--blue); color:#fff}
+    .disabled-btn{background:#bdc3c7; color:#7f8c8d; cursor:not-allowed; pointer-events:none}
+
+    .progress-container{
+      width:100%; background:#ecf0f1; border-radius:8px; margin:15px 0; height:18px; overflow:hidden;
+    }
+    .progress-bar{
+      height:100%; background:var(--ok); text-align:center; color:#fff; font-size:12px; font-weight:bold; line-height:18px;
     }
 
-    .card h3 {
-      margin-bottom: 10px;
-      color: #34495e;
+    .share-icons{
+      display:none; flex-direction:column; position:absolute;
+      top:50%; left:105%; transform:translateY(-50%); gap:10px; z-index:99;
     }
+    .share-icons a{font-size:28px; color:var(--text); text-decoration:none}
+    .share-icons a:hover{color:var(--brand)}
 
-    .btn {
-      display: inline-block;
-      margin: 8px 5px;
-      padding: 10px 16px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      cursor: pointer;
+    /* ABOUT + CONTACT */
+    #about .content, #list .content{
+      padding:2rem; border-radius:12px; line-height:1.8;
+      box-shadow:0 0 10px rgba(0,0,0,.1); max-width:900px; margin:40px auto 0;
     }
-
-    .donate-btn {
-      background: #FFD700;
-      color: white;
+    .site-footer{
+      background:none; border-top:2px solid #fdd835; color:#555;
+      text-align:center; padding:15px 0;
     }
-    .donate-btn:hover { background: #34495e; }
+    .site-footer a{color:#555; text-decoration:none}
+    .site-footer a:hover{color:var(--brand)}
+    .social-icons{margin-top:10px}
+    .social-icons a{margin:0 8px; font-size:1.2rem; transition:color .3s}
 
-    .share-btn {
-      background: #3498db;
-      color: white;
+    /* BLOG */
+    #blog{background:var(--bg)}
+    .blog-grid{
+      display:grid; gap:20px;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
     }
-    .share-btn:hover { background: #3498db; }
-
-    .disabled-btn {
-      background: #bdc3c7;
-      color: #7f8c8d;
-      cursor: not-allowed;
-      pointer-events: none;
+    .blog-card{
+      background:#fff; border-radius:10px; padding:1rem; box-shadow:0 4px 8px rgba(0,0,0,.05);
+      text-align:left; transition:transform .2s ease;
     }
+    .blog-card:hover{transform:translateY(-5px)}
+    .blog-card h3{font-size:1.1rem; margin-bottom:.5rem}
+    .blog-card p{font-size:.95rem; color:#555}
 
-    /* Progress Bar */
-    .progress-container {
-      width: 100%;
-      background: #ecf0f1;
-      border-radius: 8px;
-      margin: 15px 0;
-      height: 18px;
-      overflow: hidden;
+    /* Reveal animations (kept from your version) */
+    .reveal{opacity:0; transition:all .8s ease}
+    .reveal-up{transform:translateY(40px)}
+    .reveal-zoom{transform:scale(.95)}
+    .reveal.active{opacity:1; transform:none}
+
+    /* FOOT */
+    .foot{
+      background:var(--text); color:#aaa; text-align:center; padding:10px 0; font-size:.9rem; border-top:1px solid #333;
     }
-
-    .progress-bar {
-      height: 100%;
-      background: #27ae60;
-      text-align: center;
-      color: white;
-      font-size: 12px;
-      font-weight: bold;
-      line-height: 18px;
-    }
-
-    /* Share Icons */
-    .share-icons {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 50%;
-      left: 105%;
-      transform: translateY(-50%);
-      gap: 10px;
-      z-index: 9999;
-    }
-
-    .share-icons a {
-      font-size: 28px;
-      color: #34495e;
-      text-decoration: none;
-    }
-
-    .share-icons a:hover { color: #FFD700; }
-    #about {
-  background-color: transparent;
-  padding: 40px 20px;
-  border-radius: 15px;
-  color: #333;
-  font-family: 'Baloo 2', cursive;
-  text-align: center;
-}
-    .site-footer {
-  background: none;
-  border-top: 2px solid #fdd835; /* Accent line */
-  color: #555;
-  text-align: center;
-  padding: 15px 0;
-  font-family: 'Poppins', sans-serif;
-}
-.site-footer h3 {
-  margin: 5px 0;
-}
-.site-footer a {
-  color: #555;
-  text-decoration: none;
-}
-.site-footer a:hover {
-  color: #FFD700; /* Hover matches accent */
-}
-.social-icons {
-  margin-top: 10px;
-}
-.social-icons a {
-  margin: 0 8px;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
-}
-.how-it-works {
-  background-color: #f5f5f5;
-  padding: 20px 10px;
-  text-align: center;
-}
-
-.how-it-works h2 {
-  font-size: 1.8em;
-  color: #2c3e50;
-  margin-bottom: 15px;
-}
-
-.steps {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.step {
-  background: white;
-  border-radius: 10px;
-  padding: 12px;
-  max-width: 180px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-}
-
-.icon {
-  font-size: 1.4em;
-  margin-bottom: 5px;
-}
-
-.divider {
-  margin: 30px auto;
-  border: none;
-  height: 2px;
-  width: 50%;
-  background: #ddd;
-}
-  .reveal {
-  opacity: 0;
-  transition: all 0.8s ease;
-}
-.reveal-up { transform: translateY(40px); }
-.reveal-zoom { transform: scale(0.95); }
-.reveal.active {
-  opacity: 1;
-  transform: none;
-}
-    /* Footer */
-.foot {
-  background: #34495e;         /* deep black for contrast */
-  color: #aaa;              /* softer text color */
-  text-align: center;
-  padding: 10px 0;          /* slim height */
-  font-size: 0.9rem;        /* slightly smaller text */
-  border-top: 1px solid #333; /* subtle divider */
-}
-
-.foot .footer {
-  margin-bottom: 5px;
-}
-
-.foot .footer a {
-  color: #aaa;
-  text-decoration: none;
-  margin: 0 8px;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
-}
-
-.foot .footer a:hover {
-  color: #FFD700; /* brighter on hover */
-}
-</style>
+    .foot .footer a{color:#aaa; text-decoration:none; margin:0 8px}
+    .foot .footer a:hover{color:var(--brand)}
+  </style>
 </head>
 <body>
- <!-- HEADER -->
+
+  <!-- HEADER -->
   <header class="site-header">
     <div class="header-container">
-      <a href="#home" class="logo">
+      <a href="#home" class="logo" aria-label="Support Kenyan Schools Home">
         <img src="SKS.png" alt="Support Kenyan Schools Logo">
       </a>
-      <nav class="main-nav">
-        <div class="hamburger" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+
+      <nav>
+        <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
         <div class="nav-links" id="navLinks">
           <a href="#home">Home</a>
           <a href="#about">About Us</a>
-          <a href="#support">Support a School</a>
+          <a href="#support-a-school">Support a School</a>
           <a href="#blog">Blog</a>
           <a href="#list">List a School</a>
           <a href="#contact">Contact</a>
@@ -391,370 +197,296 @@
       </nav>
     </div>
   </header>
-<!-- MAIN CONTENT -->
-<main>
-  <section>
-<section id="home" class="reveal reveal-up">
-    <img src="Child 1.jpg" alt="Children learning" style="width:100%; height: auto;">
-    <img src="P1.jpg" alt="Children learning" style="width:100%; height: auto;">
-    <!--<div style="text-align: center; margin-top: 20px;">-->
- <!-- <h3>Our School Tour Video</h3>-->
-  <video controls style="width:100%; height: auto; border-radius: 0px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">	
-    <source src="Video.mp4" type="video/mp4">
-  </video>
-</div>
-  </section>
-<section id="about">
-<section id="about" style="padding: 2rem; border-radius: 12px; font-family: 'Baloo 2', cursive; color: #333; line-height: 1.8; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 900px; margin: auto; margin-top: 50px;">
-  <h2 class="reveal reveal-up"style="text-align:center;">✨ About Us</h2>
 
-  <h3>🌱 A small dream, making a big difference</h3>
-  <p class="reveal reveal-up">
-    In the heart of Kenya, thousands of children dream of learning, growing, and creating a better tomorrow. But many schools still lack the basics — clean water, safe dormitories, computers, books, and even classrooms.
-  </p>
-  <p class="reveal reveal-up">
-    We believe <strong>every child deserves a fair start</strong>.<br>
-    That's why <strong>Support Kenyan Schools</strong> exists — to connect kind hearts with schools in need.
-  </p>
+  <!-- MAIN -->
+  <main>
+    <!-- HOME -->
+    <section id="home" class="section-wrap reveal reveal-up">
+      <img src="Child 1.jpg" alt="Children learning" style="width:100%;height:auto;">
+      <img src="P1.jpg" alt="Children in class" style="width:100%;height:auto;margin-top:8px;">
+      <video controls style="width:100%;height:auto;margin-top:8px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.2)">
+        <source src="Video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </section>
 
-  <h3>🤝 What We Do</h3>
-  <p>
-    We listen to schools. We list their needs.<br>
-    Then, we invite <strong>you</strong> — changemakers, supporters, and dreamers — to be part of the story.
-  </p>
+    <!-- ABOUT -->
+    <section id="about" class="section-wrap">
+      <div class="content reveal reveal-up" style="text-align:center;">
+        <h2>✨ About Us</h2>
+        <h3>🌱 A small dream, making a big difference</h3>
+        <p>
+          In the heart of Kenya, thousands of children dream of learning, growing, and creating a better tomorrow. But many schools still lack the basics — clean water, safe dormitories, computers, books, and even classrooms.
+        </p>
+        <p>
+          We believe <strong>every child deserves a fair start</strong>.<br>
+          That's why <strong>Support Kenyan Schools</strong> exists — to connect kind hearts with schools in need.
+        </p>
+        <h3>🤝 What We Do</h3>
+        <p>We listen to schools. We list their needs. Then, we invite <strong>you</strong> — changemakers, supporters, and dreamers — to be part of the story.</p>
+        <h3>💡 Why It Matters</h3>
+        <p>When a school has the right tools, <strong>students thrive</strong>. Girls stay in school. Boys believe in their future. Communities grow stronger.</p>
+        <h3>🎒 Join the Movement</h3>
+        <p>This isn’t just our story — it’s yours too. Be part of a movement that’s <strong>changing classrooms, one brick, one book, one smile at a time.</strong></p>
+      </div>
+    </section>
 
-  <h3>💡 Why It Matters</h3>
-  <p>
-    When a school has the right tools, <strong> students thrive</strong>.<br>
-    Girls stay in school. Boys believe in their future. Communities grow stronger.
-  </p>
-
-  <h3>🎒 Join the Movement</h3>
-  <p>
-    This isn’t just our story — it’s yours too.<br>
-    Be part of a movement that’s <strong> changing classrooms, one brick, one book, one smile at a time.</strong>
-  </p>
-  </section>
-    <section id="support-a-school" class="find-a-school">
-  <div class="container">
-
-    <!-- How It Works -->
-    <div class="how-it-works">
-      <h2 class="reveal reveal-up">How It Works</h2>
-      <div class="steps reveal reveal-zoom">
-        <div class="step">
-          <div class="icon">🔍</div>
-          <h3>Meet Our Schools</h3>
-          <p>View schools on our platform with their needs and location.</p>
-        </div>
-        <div class="step">
-          <div class="icon">❤️</div>
-          <h3>Choose One</h3>
-          <p>Select a school that matches your passion to support.</p>
-        </div>
-        <div class="step">
-          <div class="icon">🎁</div>
-          <h3>Provide Support</h3>
-          <p>Send funds, materials, or volunteer your time.</p>
-        </div>
-        <div class="step">
-          <div class="icon">📬</div>
-          <h3>See the Impact</h3>
-          <p>Receive updates on how your help has changed lives.</p>
+    <!-- SUPPORT A SCHOOL -->
+    <section id="support-a-school" class="section-wrap">
+      <div class="how-it-works reveal reveal-up">
+        <h2>How It Works</h2>
+        <div class="steps reveal reveal-zoom">
+          <div class="step">
+            <div class="icon">🔍</div>
+            <h3>Meet Our Schools</h3>
+            <p>View schools on our platform with their needs and location.</p>
+          </div>
+          <div class="step">
+            <div class="icon">❤️</div>
+            <h3>Choose One</h3>
+            <p>Select a school that matches your passion to support.</p>
+          </div>
+          <div class="step">
+            <div class="icon">🎁</div>
+            <h3>Provide Support</h3>
+            <p>Send funds, materials, or volunteer your time.</p>
+          </div>
+          <div class="step">
+            <div class="icon">📬</div>
+            <h3>See the Impact</h3>
+            <p>Receive updates on how your help has changed lives.</p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Divider -->
-    <hr class="divider">
+      <hr class="divider">
 
-   <div class="container">
-    <!-- School 1 -->
-    <div class="card">
-      <h3>Longisa Primary: Bomet</h3>
-      <p>
-        Longisa Primary School currently has over <strong>510 pupils</strong> learning without proper desks. 
-        Four children share a desk in this school, making it difficult to write, read, and concentrate.</strong> 
-    Your support can change this.
-      </p>
-      <div class="needs">
-        <p><strong>Need:</strong> 50 desks (Ksh 2,000 each)</p>
-        <p><strong>Goal:</strong> Ksh 100,000</p>
+      <div class="schools">
+        <!-- School 1 -->
+        <article class="card reveal reveal-up">
+          <h3>Longisa Primary: Bomet</h3>
+          <p>
+            Longisa Primary School currently has over <strong>510 pupils</strong> learning without proper desks.
+            Four children share a desk, making it difficult to write, read, and concentrate. Your support can change this.
+          </p>
+          <div class="needs">
+            <p><strong>Need:</strong> 50 desks (Ksh 2,000 each)</p>
+            <p><strong>Goal:</strong> Ksh 100,000</p>
+          </div>
+          <div class="progress-container" aria-label="Funding progress">
+            <div class="progress-bar" style="width:20%;">20%</div>
+          </div>
+          <p><em>Ksh 20,000 raised of 100,000 goal</em></p>
+          <a href="tel:+254720379222" class="btn donate-btn">Donate</a>
+          <button class="btn share-btn" onclick="toggleShare(this, event)">Share</button>
+          <div class="share-icons" aria-label="Share options">
+            <a href="https://wa.me/?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:?subject=Support Kenyan Schools&body=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" aria-label="Share via email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank" aria-label="Share on Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/intent/tweet?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank" aria-label="Share on X"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://wwinfred.github.io/Support-Kenyan-Schools/&title=Support%20Kenyan%20Schools" target="_blank" aria-label="Share on LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="javascript:void(0);" onclick="copyLink()" aria-label="Copy link for TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </article>
+
+        <!-- School 2 -->
+        <article class="card reveal reveal-up">
+          <h3>Nawoyaregae Primary: Turkana</h3>
+          <p>Total pupils: <strong>386 (187 girls)</strong>. Many girls miss school during their periods due to lack of sanitary pads.</p>
+          <div class="progress-container" aria-label="Funding progress">
+            <div class="progress-bar" style="width:0%;">0%</div>
+          </div>
+          <a href="#" class="btn donate-btn disabled-btn" aria-disabled="true">Donate Coming Soon</a>
+          <button class="btn share-btn" onclick="toggleShare(this, event)">Share</button>
+          <div class="share-icons" aria-label="Share options">
+            <a href="https://wa.me/?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:?subject=Support Kenyan Schools&body=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/intent/tweet?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://wwinfred.github.io/Support-Kenyan-Schools/&title=Support%20Kenyan%20Schools" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="javascript:void(0);" onclick="copyLink()"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </article>
+
+        <!-- School 3 -->
+        <article class="card reveal reveal-up">
+          <h3>Mararani Primary: Lamu</h3>
+          <p>The school reopened in 2021 after insecurity in the area. <strong>Total pupils: 500</strong>. We plan to replace roofs, paint, and repair classrooms & offices.</p>
+          <div class="progress-container" aria-label="Funding progress">
+            <div class="progress-bar" style="width:0%;">0%</div>
+          </div>
+          <a href="#" class="btn donate-btn disabled-btn" aria-disabled="true">Donate Coming Soon</a>
+          <button class="btn share-btn" onclick="toggleShare(this, event)">Share</button>
+          <div class="share-icons" aria-label="Share options">
+            <a href="https://wa.me/?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:?subject=Support Kenyan Schools&body=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/intent/tweet?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://wwinfred.github.io/Support-Kenyan-Schools/&title=Support%20Kenyan%20Schools" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="javascript:void(0);" onclick="copyLink()"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </article>
       </div>
+    </section>
 
-      <!-- Progress bar -->
-      <div class="progress-container">
-        <div class="progress-bar" style="width: 20%;">20%</div>
+    <!-- BLOG -->
+    <section id="blog" class="section-wrap">
+      <h2 class="reveal reveal-up" style="text-align:center;margin-bottom:1rem;">📚 Our Blog</h2>
+      <div class="blog-grid">
+        <article class="blog-card reveal reveal-up">
+          <h3>Supporting Schools in Rural Kenya</h3>
+          <p>Discover how small contributions bring big changes to rural classrooms...</p>
+          <a href="#" class="btn" style="margin-top:.5rem">Read More →</a>
+        </article>
+        <article class="blog-card reveal reveal-up">
+          <h3>Innovative Learning Spaces</h3>
+          <p>See how digital tools are transforming education in Kenya’s schools...</p>
+          <a href="#" class="btn" style="margin-top:.5rem">Read More →</a>
+        </article>
+        <article class="blog-card reveal reveal-up">
+          <h3>Volunteer Stories</h3>
+          <p>Read inspiring experiences from those who’ve supported Kenyan schools...</p>
+          <a href="#" class="btn" style="margin-top:.5rem">Read More →</a>
+        </article>
       </div>
-      <p><em>Ksh 20,000 raised of 100,000 goal</em></p>
+    </section>
 
-      <a href="tel:+254720379222" class="btn donate-btn">Donate</a>
-      <button class="btn share-btn" onclick="toggleShare(this)">Share</button>
+    <!-- LIST A SCHOOL -->
+    <section id="list" class="section-wrap">
+      <div class="content reveal reveal-up">
+        <h2 style="margin-bottom:10px;font-size:22px;">List Your School</h2>
+        <p>Submit your school details and join the Support Kenyan Schools network.</p>
 
-      <div class="share-icons">
-        <a href="https://wa.me/?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:?subject=Support Kenyan Schools&body=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://twitter.com/intent/tweet?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://wwinfred.github.io/Support-Kenyan-Schools/&title=Support%20Kenyan%20Schools" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="javascript:void(0);" onclick="copyLink()"><i class="fab fa-tiktok"></i></a>
+        <form method="POST" action="https://api.web3forms.com/submit" style="padding:20px;border:1px solid #ccc;border-radius:8px;margin-top:12px;">
+          <input type="hidden" name="access_key" value="03e1d188-050a-411e-9b22-efa73292ed30">
+
+          <div style="display:flex;align-items:center;margin-bottom:8px;gap:8px;">
+            <label for="name" style="width:80px;font-size:14px;">Name:</label>
+            <input type="text" id="name" name="name" required style="flex:1;min-width:220px;padding:6px;font-size:14px;">
+          </div>
+
+          <div style="display:flex;align-items:center;margin-bottom:8px;gap:8px;">
+            <label for="school" style="width:80px;font-size:14px;">School:</label>
+            <input type="text" id="school" name="school_name" required style="flex:1;min-width:220px;padding:6px;font-size:14px;">
+          </div>
+
+          <div style="display:flex;align-items:center;margin-bottom:8px;gap:8px;">
+            <label for="location" style="width:80px;font-size:14px;">Location:</label>
+            <input type="text" id="location" name="location" required style="flex:1;min-width:220px;padding:6px;font-size:14px;">
+          </div>
+
+          <div style="display:flex;align-items:center;margin-bottom:8px;gap:8px;">
+            <label for="email" style="width:80px;font-size:14px;">Email:</label>
+            <input type="email" id="email" name="email" required style="flex:1;min-width:220px;padding:6px;font-size:14px;">
+          </div>
+
+          <div style="display:flex;align-items:center;margin-bottom:8px;gap:12px;">
+            <label style="width:80px;font-size:14px;">Type:</label>
+            <label><input type="radio" name="type" value="Government" required> Government</label>
+            <label><input type="radio" name="type" value="Private"> Private</label>
+          </div>
+
+          <div style="display:flex;align-items:flex-start;margin-bottom:10px;gap:8px;">
+            <label for="needs" style="width:80px;font-size:14px;">Needs:</label>
+            <textarea id="needs" name="needs_description" rows="3" style="flex:1;min-width:220px;padding:6px;font-size:14px;" placeholder="Describe your needs..."></textarea>
+          </div>
+
+          <div style="text-align:left;margin-left:80px;">
+            <button type="submit" class="btn">Submit</button>
+          </div>
+        </form>
       </div>
-    </div>
+    </section>
 
-    <!-- School 2 -->
-    <div class="card">
-      <h3>Nawoyaregae Primary: Turkana</h3>
-      <p>Total pupils: <strong>386 with 187 girls</strong>. Many girls have been missing school during their periods because they lack proper sanitary pads. Some use torn cloth or even goat skins in place of pads.</p>
-
-      <!-- Progress bar -->
-      <div class="progress-container">
-        <div class="progress-bar" style="width: 0%;">0%</div>
+    <!-- CONTACT -->
+    <section id="contact" class="section-wrap">
+      <div class="site-footer reveal reveal-up">
+        <div class="contact-container">
+          <h3>Contact Us</h3>
+          <p>Email: <a href="mailto:waitherawinfred@gmail.com">waitherawinfred@gmail.com</a></p>
+          <p>Phone No: <a href="tel:+254720379222">+254 720 379 222</a></p>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=61579283816852" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/KenyanSupport" target="_blank" aria-label="X/Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/supportkenyanschools2025/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/winfred-waithera-7a5848110/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.tiktok.com/@support.kenyanschools" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
       </div>
+    </section>
+  </main>
 
-      <a href="#" class="btn donate-btn disabled-btn">Donate Coming Soon</a>
-      <button class="btn share-btn" onclick="toggleShare(this)">Share</button>
-
-      <div class="share-icons">
-        <a href="https://wa.me/?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:?subject=Support Kenyan Schools&body=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://twitter.com/intent/tweet?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://wwinfred.github.io/Support-Kenyan-Schools/&title=Support%20Kenyan%20Schools" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="javascript:void(0);" onclick="copyLink()"><i class="fab fa-tiktok"></i></a>
-      </div>
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="footer">
+      <a href="#about">About Us</a>
+      <a href="#support-a-school">Support a School</a>
+      <a href="#donate">Donate</a>
+      <a href="#contact">Contact</a>
     </div>
+    <p class="trust-note">© 2025 Support Kenyan Schools | Privacy Policy | Transparency Matters</p>
+  </footer>
 
-    <!-- School 3 -->
-    <div class="card">
-      <h3>Mararani Primary: Lamu</h3>
-      <p>The school was reopened in 2021 after insecurity in the area.<strong>Total pupils: 500</strong>. We plan to replace roofs, paint and repair classrooms & offices</p>
-
-      <!-- Progress bar -->
-      <div class="progress-container">
-        <div class="progress-bar" style="width: 0%;">0%</div>
-      </div>
-
-      <a href="#" class="btn donate-btn disabled-btn">Donate Coming Soon</a>
-      <button class="btn share-btn" onclick="toggleShare(this)">Share</button>
-
-      <div class="share-icons">
-        <a href="https://wa.me/?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:?subject=Support Kenyan Schools&body=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://twitter.com/intent/tweet?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://wwinfred.github.io/Support-Kenyan-Schools/&title=Support%20Kenyan%20Schools" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="javascript:void(0);" onclick="copyLink()"><i class="fab fa-tiktok"></i></a>
-      </div>
-    </div>
-  </div>
-
-<!-- BLOG SECTION -->
-<section id="blog" style="padding: 3rem 1rem; background-color: #f5f5f5; text-align: center;">
-  <h2 style="color: #34495e; margin-bottom: 1rem;">📚 Our Blog</h2>
-  <div class="blog-container" style="display: flex; overflow-x: auto; gap: 1.5rem; padding-bottom: 5px;">
-    
-    <!-- Blog Post 1 -->
-    <div class="blog-post" style="min-width: 280px; flex: 0 0 auto; background: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); padding: 1rem; text-align: left; transition: transform 0.3s;">
-      <!--<img src="Photo .jpg" alt="Blog 1" style="width:100%; border-radius: 8px; margin-bottom: 0.8rem;">-->
-      <h3 style="font-size: 1.1rem; color: #34495e; margin-bottom: 0.5rem;">Supporting Schools in Rural Kenya</h3>
-      <p style="font-size: 0.9rem; color: #555;">Discover how small contributions bring big changes to rural classrooms...</p>
-      <a href="#" style="color: #34495e; font-weight: bold; text-decoration: none;">Read More →</a>
-    </div>
-
-    <!-- Blog Post 2 -->
-    <div class="blog-post" style="min-width: 280px; flex: 0 0 auto; background: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); padding: 1rem; text-align: left; transition: transform 0.3s;">
-      <!--<img src="Photo 2.jpg" alt="Blog 2" style="width:100%; border-radius: 8px; margin-bottom: 0.8rem;">-->
-      <h3 style="font-size: 1.1rem; color: #34495e; margin-bottom: 0.5rem;">Innovative Learning Spaces</h3>
-      <p style="font-size: 0.9rem; color: #555;">See how digital tools are transforming education in Kenya’s schools...</p>
-      <a href="#" style="color: #34495e; font-weight: bold; text-decoration: none;">Read More →</a>
-    </div>
-
-    <!-- Blog Post 3 -->
-    <div class="blog-post" style="min-width: 280px; flex: 0 0 auto; background: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); padding: 1rem; text-align: left; transition: transform 0.3s;">
-      <!--<img src="Photo 3.jpg" alt="Blog 3" style="width:100%; border-radius: 8px; margin-bottom: 0.8rem;">-->
-      <h3 style="font-size: 1.1rem; color: #34495e; margin-bottom: 0.5rem;">Volunteer Stories</h3>
-      <p style="font-size: 0.9rem; color: #555;">Read inspiring experiences from those who’ve supported Kenyan schools...</p>
-      <a href="#" style="color: #34495e; font-weight: bold; text-decoration: none;">Read More →</a>
-    </div>
-
-  </div>
-</section>
-   <section id="list">
- <section id="list" style="padding: 2rem; border-radius: 12px; font-family: 'Baloo 2', cursive; color: #333; line-height: 1.8; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 900px; margin: auto; margin-top: 50px;">
-   <h2 style="margin-bottom: 10px; font-size: 22px; class="reveal reveal-up">List Your School</h2>
-  <p class="reveal reveal-up">Submit your school details and join the Support Kenyan Schools network.</p>
-<form method="POST" action="https://api.web3forms.com/submit" class="reveal reveal-up" style="padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
-  
-  <!-- Required Web3Forms access key -->
-  <input type="hidden" name="access_key" value="03e1d188-050a-411e-9b22-efa73292ed30">
-
-  <div style="display: flex; align-items: center; margin-bottom: 6px;">
-    <label for="name" style="width: 60px; font-size: 14px;">Name:</label>
-    <input type="text" id="name" name="name" required style="width: 200px; padding: 4px; font-size: 14px;">
-  </div>
-
-  <div style="display: flex; align-items: center; margin-bottom: 6px;">
-    <label for="school" style="width: 60px; font-size: 14px;">School:</label>
-    <input type="text" id="school" name="school_name" required style="width: 200px; padding: 4px; font-size: 14px;">
-  </div>
-
-  <div style="display: flex; align-items: center; margin-bottom: 6px;">
-    <label for="location" style="width: 60px; font-size: 14px;">Location:</label>
-    <input type="text" id="location" name="location" required style="width: 200px; padding: 4px; font-size: 14px;">
-  </div>
-
-  <div style="display: flex; align-items: center; margin-bottom: 6px;">
-    <label for="email" style="width: 60px; font-size: 14px;">Email:</label>
-    <input type="email" id="email" name="email" required style="width: 200px; padding: 4px; font-size: 14px;">
-  </div>
-
-  <div style="display: flex; align-items: center; margin-bottom: 6px;">
-    <label style="width: 60px; font-size: 14px;">Type:</label>
-    <div style="display: flex; gap: 10px; font-size: 14px;">
-      <label><input type="radio" name="type" value="Government" required> Government</label>
-      <label><input type="radio" name="type" value="Private"> Private</label>
-    </div>
-  </div>
-
-  <div style="display: flex; align-items: flex-start; margin-bottom: 6px;">
-    <label for="needs" style="width: 60px; font-size: 14px;">Needs:</label>
-    <textarea id="needs" name="needs_description" rows="3" style="width: 200px; padding: 4px; font-size: 14px;" placeholder="Describe your needs..."></textarea>
-  </div>
-
-  <div style="text-align: left; margin-left: 60px;">
-    <button type="submit" style="padding: 5px 12px; font-size: 14px;">Submit</button>
-  </div>
-
-</form>
-</div>
-   </section>
-<section id="contact">
-<section class="site-footer reveal reveal-up">
-  <div class="contact-container">
-    <h3 class="reveal reveal-up">Contact Us</h3>
-    <p>Email: <a href="mailto:info@supportkenyanschools.org">waitherawinfred@gmail.com</a></p>
-    <p>Phone No: <a href="+254 720 379 222">+254 720 379 222</a></p>
-    <div class="social-icons">
-      <a href="https://www.facebook.com/profile.php?id=61579283816852" target="_blank" aria-label="Facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://x.com/KenyanSupport" target="_blank" aria-label="Twitter">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://www.instagram.com/supportkenyanschools2025/" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/winfred-waithera-7a5848110/" target="_blank" aria-label="LinkedIn">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-      <a href="https://www.tiktok.com/@support.kenyanschools" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-      <i class="fab fa-tiktok"></i>
-     </a>
-    </div>
-  </div>
-  <section>
-</section>
-
-</main>
-<script>
-    /* Toggle mobile menu */
-    function toggleMenu() {
+  <!-- SCRIPTS -->
+  <script>
+    // Mobile menu
+    function toggleMenu(){
       document.getElementById('navLinks').classList.toggle('active');
     }
-
-    /* Close menu when link clicked */
-    const navLinks = document.querySelectorAll('.nav-links a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('navLinks').classList.remove('active');
+    // Close menu on link click
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('#navLinks a').forEach(a=>{
+        a.addEventListener('click', ()=> document.getElementById('navLinks').classList.remove('active'));
       });
     });
 
-    /* Scroll effect */
-    const header = document.querySelector('.site-header');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    });
-  </script>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6899e913ddd4a01926707a70/1j2cjct82';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-<script>
-  function revealOnScroll() {
-    const reveals = document.querySelectorAll(".reveal");
-    reveals.forEach(el => {
-      const windowHeight = window.innerHeight;
-      const elementTop = el.getBoundingClientRect().top;
-      const elementVisible = 100;
+    // Reveal on scroll
+    function revealOnScroll(){
+      document.querySelectorAll('.reveal').forEach(el=>{
+        const windowH = window.innerHeight;
+        const top = el.getBoundingClientRect().top;
+        const visible = 100;
+        if(top < windowH - visible){ el.classList.add('active'); }
+        else{ el.classList.remove('active'); }
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
 
-      if (elementTop < windowHeight - elementVisible) {
-        el.classList.add("active");
-      } else {
-        el.classList.remove("active"); 
-      }
-    });
-  }
-  window.addEventListener("scroll", revealOnScroll);
-  revealOnScroll(); // Run on load
-</script>
-<script>
-  function toggleShare(button) {
-    // Close all open popups first
-    document.querySelectorAll('.share-icons').forEach(el => el.style.display = 'none');
-
-    // Open only the one for this card
-    let shareBox = button.nextElementSibling;
-    shareBox.style.display = "flex";
-
-    // Stop the click from bubbling up
-    event.stopPropagation();
-  }
-
-  // Close popups when clicking anywhere else on the page
-  document.addEventListener("click", function () {
-    document.querySelectorAll('.share-icons').forEach(el => el.style.display = 'none');
-  });
-
-  // Prevent closing when clicking inside the share icons themselves
-  document.querySelectorAll('.share-icons').forEach(el => {
-    el.addEventListener("click", function (event) {
+    // Share popups (single, robust version)
+    function toggleShare(button, event){
+      document.querySelectorAll('.share-icons').forEach(el=> el.style.display='none'); // close others
+      const shareBox = button.nextElementSibling;
+      shareBox.style.display = 'flex';
       event.stopPropagation();
+    }
+    document.addEventListener('click', ()=> {
+      document.querySelectorAll('.share-icons').forEach(el=> el.style.display='none');
     });
-  });
-
-  function copyLink() {
-    const link = "https://wwinfred.github.io/Support-Kenyan-Schools/";
-    navigator.clipboard.writeText(link).then(() => {
-      alert("Link copied! You can paste it into TikTok.");
+    document.querySelectorAll('.share-icons').forEach(el=>{
+      el.addEventListener('click', ev=> ev.stopPropagation());
     });
-  }
-</script>
 
-<footer class="foot">
-  <div class="footer">
-    <a href="#about">About Us</a>
-    <a href="#support-a-school">Support a School</a>
-    <a href="#donate">Donate</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <p class="trust-note">
-    © 2025 Support Kenyan Schools | Privacy Policy | Transparency Matters
-  </p>
-</footer>
+    // Copy link
+    function copyLink(){
+      const link = "https://wwinfred.github.io/Support-Kenyan-Schools/";
+      navigator.clipboard.writeText(link).then(()=> alert("Link copied! You can paste it into TikTok."));
+    }
+  </script>
+
+  <!--Start of Tawk.to Script (keep your real property ID here)-->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6899e913ddd4a01926707a70/1j2cjct82';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
 </body>
 </html>
-
