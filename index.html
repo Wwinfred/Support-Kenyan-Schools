@@ -117,158 +117,35 @@
     .icon{font-size:1.4rem; margin-bottom:6px}
     .divider{margin:30px auto; border:none; height:2px; width:50%; background:#ddd}
 
-   /* ----- SUPPORT A SCHOOL CARDS ----- */
-.schools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-  justify-content: center;
-  padding: 20px 0;
-}
+    /* SCHOOL CARDS */
+    .schools{
+      display:flex; justify-content:center; gap:20px; padding:20px 0; flex-wrap:wrap;
+    }
+    .card{
+      background:#fff; padding:20px; border-radius:12px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1); text-align:center; position:relative;
+      flex:1 1 300px; max-width:360px;
+    }
+    .card h3{margin-bottom:10px}
+    .donate-btn{background:var(--brand); color:#fff}
+    .donate-btn:hover{background:var(--text)}
+    .share-btn{background:var(--blue); color:#fff}
+    .disabled-btn{background:#bdc3c7; color:#7f8c8d; cursor:not-allowed; pointer-events:none}
 
-.card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  text-align: center;
-  flex: 1 1 300px;
-  max-width: 350px;
-  position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .progress-container{
+      width:100%; background:#ecf0f1; border-radius:8px; margin:15px 0; height:18px; overflow:hidden;
+    }
+    .progress-bar{
+      height:100%; background:var(--ok); text-align:center; color:#fff; font-size:12px; font-weight:bold; line-height:18px;
+    }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
+    .share-icons{
+      display:none; flex-direction:column; position:absolute;
+      top:50%; left:105%; transform:translateY(-50%); gap:10px; z-index:99;
+    }
+    .share-icons a{font-size:28px; color:var(--text); text-decoration:none}
+    .share-icons a:hover{color:var(--brand)}
 
-.card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 12px;
-  color: var(--brand);
-}
-
-.card p {
-  font-size: 0.95rem;
-  color: var(--text);
-  margin-bottom: 12px;
-}
-
-.needs p {
-  font-weight: 500;
-  margin-bottom: 4px;
-}
-
-.progress-container {
-  width: 100%;
-  background: #ecf0f1;
-  border-radius: 12px;
-  margin: 12px 0;
-  height: 18px;
-  overflow: hidden;
-}
-
-.progress-bar {
-  height: 100%;
-  background: var(--ok);
-  text-align: center;
-  color: #fff;
-  font-size: 12px;
-  font-weight: bold;
-  line-height: 18px;
-  transition: width 0.5s ease;
-}
-
-/* BUTTONS */
-.btn {
-  padding: 8px 14px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  text-decoration: none; /* remove underline */
-}
-
-/* Donate button in gold */
-.donate-btn {
-  background: #FFD700;
-  color: #2c3e50;
-  margin-right: 8px;
-  text-decoration: none;
-}
-
-.donate-btn:hover {
-  background: #e6c200;
-  color: #fff;
-  text-decoration: none;
-}
-
-.share-btn {
-  background: var(--blue);
-  color: #fff;
-  position: relative;
-  z-index: 1;
-}
-
-/* MODERN SHARE BUBBLE */
-.share-icons {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  pointer-events: none;
-}
-
-.share-icons a {
-  display: block;
-  width: 40px;
-  height: 40px;
-  background: #f5f5f5;
-  color: var(--text);
-  border-radius: 50%;
-  text-align: center;
-  line-height: 40px;
-  font-size: 18px;
-  transition: all 0.4s ease;
-  transform: scale(0);
-  pointer-events: none;
-  position: absolute;
-}
-
-/* Show icons with smooth circular animation */
-.card.show-share .share-icons a {
-  transform: scale(1);
-  pointer-events: auto;
-}
-
-.card.show-share .share-icons a:nth-child(1) { transform: rotate(0deg) translate(70px) rotate(0deg); }
-.card.show-share .share-icons a:nth-child(2) { transform: rotate(60deg) translate(70px) rotate(-60deg); }
-.card.show-share .share-icons a:nth-child(3) { transform: rotate(120deg) translate(70px) rotate(-120deg); }
-.card.show-share .share-icons a:nth-child(4) { transform: rotate(180deg) translate(70px) rotate(-180deg); }
-.card.show-share .share-icons a:nth-child(5) { transform: rotate(240deg) translate(70px) rotate(-240deg); }
-.card.show-share .share-icons a:nth-child(6) { transform: rotate(300deg) translate(70px) rotate(-300deg); }
-
-.share-icons a:hover {
-  color: #fff;
-  background: var(--brand);
-  transform: scale(1.3);
-}
-
-/* RESPONSIVE */
-@media(max-width: 768px) {
-  .card {
-    max-width: 100%;
-  }
-  .share-icons a {
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    font-size: 16px;
-  }
-}
     /* ABOUT + CONTACT */
     #about .content, #list .content{
       padding:2rem; border-radius:12px; line-height:1.8;
@@ -402,72 +279,73 @@
       <hr class="divider">
 
       <div class="schools">
-    <!-- School 1 -->
-    <article class="card reveal reveal-up">
-      <h3>Longisa Primary: Bomet</h3>
-      <p>
-        Longisa Primary School currently has over <strong>510 pupils</strong> learning without proper desks.
-        Four children share a desk, making it difficult to write, read, and concentrate. Your support can change this.
-      </p>
-      <div class="needs">
-        <p><strong>Need:</strong> 50 desks (Ksh 2,000 each)</p>
-        <p><strong>Goal:</strong> Ksh 100,000</p>
-      </div>
-      <div class="progress-container" aria-label="Funding progress">
-        <div class="progress-bar" style="width:20%;">20%</div>
-      </div>
-      <p><em>Ksh 20,000 raised of 100,000 goal</em></p>
-      <a href="tel:+254720379222" class="btn donate-btn">Donate</a>
-      <button class="btn share-btn" onclick="toggleShare(this, event)">Share</button>
-      <div class="share-icons">
-        <a href="https://wa.me/?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:?subject=Support%20Kenyan%20Schools&body=Check%20out%20this%20school%20on%20Support%20Kenyan%20Schools:%20https%3A%2F%2Fwwinfred.github.io%2FSupport-Kenyan-Schools%2F" target="_blank"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://twitter.com/intent/tweet?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://wwinfred.github.io/Support-Kenyan-Schools/&title=Support%20Kenyan%20Schools" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="javascript:void(0);" onclick="copyLink()"><i class="fab fa-tiktok"></i></a>
-      </div>
-    </article>
+        <!-- School 1 -->
+        <article class="card reveal reveal-up">
+          <h3>Longisa Primary: Bomet</h3>
+          <p>
+            Longisa Primary School currently has over <strong>510 pupils</strong> learning without proper desks.
+            Four children share a desk, making it difficult to write, read, and concentrate. Your support can change this.
+          </p>
+          <div class="needs">
+            <p><strong>Need:</strong> 50 desks (Ksh 2,000 each)</p>
+            <p><strong>Goal:</strong> Ksh 100,000</p>
+          </div>
+          <div class="progress-container" aria-label="Funding progress">
+            <div class="progress-bar" style="width:20%;">20%</div>
+          </div>
+          <p><em>Ksh 20,000 raised of 100,000 goal</em></p>
+          <a href="tel:+254720379222" class="btn donate-btn">Donate</a>
+          <button class="btn share-btn" onclick="toggleShare(this, event)">Share</button>
+          <div class="share-icons" aria-label="Share options">
+            <a href="https://wa.me/?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:?subject=Support Kenyan Schools&body=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" aria-label="Share via email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank" aria-label="Share on Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/intent/tweet?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank" aria-label="Share on X"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://wwinfred.github.io/Support-Kenyan-Schools/&title=Support%20Kenyan%20Schools" target="_blank" aria-label="Share on LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="javascript:void(0);" onclick="copyLink()" aria-label="Copy link for TikTok"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </article>
 
-    <!-- School 2 -->
-    <article class="card reveal reveal-up">
-      <h3>Nawoyaregae Primary: Turkana</h3>
-      <p>Total pupils: <strong>386 (187 girls)</strong>. Many girls miss school during their periods due to lack of sanitary pads.</p>
-      <div class="progress-container">
-        <div class="progress-bar" style="width:0%;">0%</div>
-      </div>
-      <a href="#" class="btn donate-btn disabled-btn">Donate Coming Soon</a>
-      <button class="btn share-btn" onclick="toggleShare(this, event)">Share</button>
-      <div class="share-icons">
-        <a href="https://wa.me/?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:?subject=Support%20Kenyan%20Schools&body=Check%20out%20this%20school%20on%20Support%20Kenyan%20Schools:%20https%3A%2F%2Fwwinfred.github.io%2FSupport-Kenyan-Schools%2F" target="_blank"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://twitter.com/intent/tweet?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://wwinfred.github.io/Support-Kenyan-Schools/&title=Support%20Kenyan%20Schools" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="javascript:void(0);" onclick="copyLink()"><i class="fab fa-tiktok"></i></a>
-      </div>
-    </article>
+        <!-- School 2 -->
+        <article class="card reveal reveal-up">
+          <h3>Nawoyaregae Primary: Turkana</h3>
+          <p>Total pupils: <strong>386 (187 girls)</strong>. Many girls miss school during their periods due to lack of sanitary pads.</p>
+          <div class="progress-container" aria-label="Funding progress">
+            <div class="progress-bar" style="width:0%;">0%</div>
+          </div>
+          <a href="#" class="btn donate-btn disabled-btn" aria-disabled="true">Donate Coming Soon</a>
+          <button class="btn share-btn" onclick="toggleShare(this, event)">Share</button>
+          <div class="share-icons" aria-label="Share options">
+            <a href="https://wa.me/?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:?subject=Support Kenyan Schools&body=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/intent/tweet?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://wwinfred.github.io/Support-Kenyan-Schools/&title=Support%20Kenyan%20Schools" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="javascript:void(0);" onclick="copyLink()"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </article>
 
-    <!-- School 3 -->
-    <article class="card reveal reveal-up">
-      <h3>Mararani Primary: Lamu</h3>
-      <p>The school reopened in 2021 after insecurity in the area. <strong>Total pupils: 500</strong>. We plan to replace roofs, paint, and repair classrooms & offices.</p>
-      <div class="progress-container">
-        <div class="progress-bar" style="width:0%;">0%</div>
+        <!-- School 3 -->
+        <article class="card reveal reveal-up">
+          <h3>Mararani Primary: Lamu</h3>
+          <p>The school reopened in 2021 after insecurity in the area. <strong>Total pupils: 500</strong>. We plan to replace roofs, paint, and repair classrooms & offices.</p>
+          <div class="progress-container" aria-label="Funding progress">
+            <div class="progress-bar" style="width:0%;">0%</div>
+          </div>
+          <a href="#" class="btn donate-btn disabled-btn" aria-disabled="true">Donate Coming Soon</a>
+          <button class="btn share-btn" onclick="toggleShare(this, event)">Share</button>
+          <div class="share-icons" aria-label="Share options">
+            <a href="https://wa.me/?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:?subject=Support Kenyan Schools&body=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/intent/tweet?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://wwinfred.github.io/Support-Kenyan-Schools/&title=Support%20Kenyan%20Schools" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="javascript:void(0);" onclick="copyLink()"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </article>
       </div>
-      <a href="#" class="btn donate-btn disabled-btn">Donate Coming Soon</a>
-      <button class="btn share-btn" onclick="toggleShare(this, event)">Share</button>
-      <div class="share-icons">
-        <a href="https://wa.me/?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:?subject=Support%20Kenyan%20Schools&body=Check%20out%20this%20school%20on%20Support%20Kenyan%20Schools:%20https%3A%2F%2Fwwinfred.github.io%2FSupport-Kenyan-Schools%2F" target="_blank"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://twitter.com/intent/tweet?text=Check%20this%20school:%20https://wwinfred.github.io/Support-Kenyan-Schools/" target="_blank"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://wwinfred.github.io/Support-Kenyan-Schools/&title=Support%20Kenyan%20Schools" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="javascript:void(0);" onclick="copyLink()"><i class="fab fa-tiktok"></i></a>
-      </div>
-    </article>
-  </div>
     </section>
+
     <!-- BLOG -->
     <section id="blog" class="section-wrap">
       <h2 class="reveal reveal-up" style="text-align:center;margin-bottom:1rem;">📚 Our Blog</h2>
@@ -569,29 +447,51 @@
 
   <!-- SCRIPTS -->
   <script>
-// Toggle share icons for each card
-function toggleShare(button, event){
-  const card = button.closest('.card');
-  card.classList.toggle('show-share');
-  event.stopPropagation();
-}
+    // Mobile menu
+    function toggleMenu(){
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+    // Close menu on link click
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('#navLinks a').forEach(a=>{
+        a.addEventListener('click', ()=> document.getElementById('navLinks').classList.remove('active'));
+      });
+    });
 
-// Close share bubbles if clicked outside
-document.addEventListener('click', ()=>{
-  document.querySelectorAll('.card.show-share').forEach(c => c.classList.remove('show-share'));
-});
+    // Reveal on scroll
+    function revealOnScroll(){
+      document.querySelectorAll('.reveal').forEach(el=>{
+        const windowH = window.innerHeight;
+        const top = el.getBoundingClientRect().top;
+        const visible = 100;
+        if(top < windowH - visible){ el.classList.add('active'); }
+        else{ el.classList.remove('active'); }
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
 
-// Prevent clicks inside share-icons from closing the menu
-document.querySelectorAll('.share-icons').forEach(el=>{
-  el.addEventListener('click', ev=> ev.stopPropagation());
-});
+    // Share popups (single, robust version)
+    function toggleShare(button, event){
+      document.querySelectorAll('.share-icons').forEach(el=> el.style.display='none'); // close others
+      const shareBox = button.nextElementSibling;
+      shareBox.style.display = 'flex';
+      event.stopPropagation();
+    }
+    document.addEventListener('click', ()=> {
+      document.querySelectorAll('.share-icons').forEach(el=> el.style.display='none');
+    });
+    document.querySelectorAll('.share-icons').forEach(el=>{
+      el.addEventListener('click', ev=> ev.stopPropagation());
+    });
 
-// Copy link function for TikTok/share
-function copyLink(){
-  const link = "https://wwinfred.github.io/Support-Kenyan-Schools/";
-  navigator.clipboard.writeText(link).then(()=> alert("Link copied! You can paste it into TikTok."));
-}
-</script>
+    // Copy link
+    function copyLink(){
+      const link = "https://wwinfred.github.io/Support-Kenyan-Schools/";
+      navigator.clipboard.writeText(link).then(()=> alert("Link copied! You can paste it into TikTok."));
+    }
+  </script>
+
   <!--Start of Tawk.to Script (keep your real property ID here)-->
   <script type="text/javascript">
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -607,16 +507,3 @@ function copyLink(){
   <!--End of Tawk.to Script-->
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
